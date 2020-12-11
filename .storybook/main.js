@@ -1,11 +1,11 @@
 const createCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
 
 module.exports = {
-    stories: ['../src/components/**/*.stories.@(js|mdx)'],
+    stories: ['../src/components/**/*.mdx'],
     addons: [
-        {
-            name: '@storybook/addon-docs/register',
-        },
+        // 1. register the docs panel (as opposed to '@storybook/addon-docs' which
+        //    will configure everything with a preset)
+        '@storybook/addon-docs/register',
         '@storybook/addon-essentials',
     ],
     webpackFinal: config => {
