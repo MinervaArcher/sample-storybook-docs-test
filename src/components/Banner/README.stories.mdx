@@ -1,0 +1,109 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import Banner from '.';
+
+<Meta title="Feedback indicators/Banner" component={Banner} />
+
+# Banner
+
+Banners communicate critical, time-sensitive messaging about loss of data,
+functionality or other system-level issues that might affect a user’s ability
+to use the site or application.
+
+Banners should appear directly above the navigation bar to ensure important
+changes or persistent conditions are prominently displayed to the user.
+Because they relate to the whole system or application, they exist at the
+highest level of the page’s hierarchy.
+
+## How to Import
+
+```jsx
+import { Banner } from 'design-system';
+```
+
+## Included Resources
+
+### Variants
+
+- `Banner.Variants.ERROR`
+- `Banner.Variants.WARNING` (default)
+
+## Example Usage
+
+<Canvas withSource="none">
+  <Banner>
+    Some content is slow or failing to publish.
+  </Banner>
+</Canvas>
+
+```jsx
+<Banner>
+  Some content is slow or failing to publish.
+</Banner>
+```
+
+## Variants
+
+A Banner's color and icon communicate the level of severity of a message.
+By default, Banners communicate warnings.
+
+<Canvas withSource="none">
+  <Story name="default">
+    <Banner>
+      Some users are reporting trouble connecting to Scoop due to a regional internet outage. If you
+      are affected, consider using your phone as a mobile hotspot to connect to the internet.
+    </Banner>
+  </Story>
+</Canvas>
+
+```jsx
+<Banner>
+  Some users are reporting trouble connecting to Scoop due to a regional internet outage. If you are
+  affected, consider using your phone as a mobile hotspot to connect to the internet.
+</Banner>
+```
+
+However, they can also communicate errors for more severe or urgent issues.
+
+<Canvas withSource="none">
+  <Story name="error">
+    <Banner variant={Banner.Variants.ERROR}>Everything is on fire</Banner>
+  </Story>
+</Canvas>
+
+```jsx
+<Banner variant={Banner.Variants.ERROR}>Everything is on fire</Banner>
+```
+
+## Best Practices
+
+### Multiple concurrent banners
+
+In rare instances, multiple system-level announcements may need to appear
+at once. These situations should be avoided whenever possible to prevent users
+from becoming overwhelmed with potentially alarming messages. However, if the
+need arises for multiple banners to appear at once, the banners should stack
+above the navbar.
+
+<Canvas withSource="none">
+  <Story name="multiple banners">
+    <div>
+      <Banner variant={Banner.Variants.WARNING}>No internet connection</Banner>
+      <Banner variant={Banner.Variants.ERROR}>
+        We are experiencing a service outage.
+      </Banner>
+    </div>
+  </Story>
+</Canvas>
+
+```jsx
+<div>
+  <Banner variant={Banner.Variants.WARNING}>No internet connection</Banner>
+  <Banner variant={Banner.Variants.ERROR}>
+    We are experiencing a service outage.
+  </Banner>
+</div>
+```
+
+## Props
+
+<ArgsTable of={Banner} />
