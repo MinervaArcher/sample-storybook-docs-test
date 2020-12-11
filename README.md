@@ -1,0 +1,1 @@
+# Simple demo of a bug when configuring @storybook/addon-docs manually
